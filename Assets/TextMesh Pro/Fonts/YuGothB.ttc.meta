@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: b226e71e624f1c240b8d95eb2f24b9eb
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Yu Gothic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d290d618b89ec674e81e4efd3384b8ef, type: 3}
+  - {fileID: 12800000, guid: 2118fb6c5034767499a88733b866af8c, type: 3}
+  - {fileID: 12800000, guid: f50e01dd1e4483d4781de0d7914ddb9c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
