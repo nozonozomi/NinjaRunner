@@ -113,12 +113,17 @@ public class PlayerController : MonoBehaviour
             // プレイ中のハイスコア表示を消す
             highScoreText.SetActive(false);
 
-            // GAME OVER時のスコアを表示
-            int currentScore = FindObjectOfType<ScoreManager>().GetScore();
+            ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
+            
+            // 自己ベストとランキングを保存
+            scoreManager.GameOver();
+            
+            // 今回のスコア
+            int currentScore = scoreManager.GetScore();
             gameOverScoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "今回のスコア：" + currentScore;
             
-            // ハイスコアを表示
-            int highScore = PlayerPrefs.GetInt("HighScore", 0);
+            // 現在のプレイヤーの自己ベスト
+            int highScore = scoreManager.GetPlayerHighScore();
             gameOverHighScoreText.GetComponent<TMPro.TextMeshProUGUI>().text = "ハイスコア：" + highScore;
             
             // スコア表示をON
@@ -142,9 +147,6 @@ public class PlayerController : MonoBehaviour
 
             // Playerの物理演算を止める
             rb.simulated = false;
-
-            // スコアを止める
-            FindObjectOfType<ScoreManager>().GameOver();
 
             // ランキングを表示
             Debug.Log("ランキング表示！");
