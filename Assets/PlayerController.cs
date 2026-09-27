@@ -149,15 +149,28 @@ public class PlayerController : MonoBehaviour
             rb.simulated = false;
 
             // ランキングを表示
-            Debug.Log("ランキング表示！");
             rankingManager.ShowRanking();
 
-            // 障害物を止める
-            ObstacleMover obstacleMover = collision.gameObject.GetComponent<ObstacleMover>();
-
-            if (obstacleMover != null)
+            // 障害物の生成を止める
+            FindObjectOfType<ObstacleGenerator>().enabled = false;
+            
+            // 巻物の生成を止める
+            FindObjectOfType<ScrollGenerator>().enabled = false;
+            
+            // 画面上のすべての障害物を止める
+            ObstacleMover[] obstacles = FindObjectsOfType<ObstacleMover>();
+            
+            foreach (ObstacleMover obstacle in obstacles)
             {
-                obstacleMover.isGameOver = true;
+                obstacle.isGameOver = true;
+            }
+            
+            // 画面上のすべての巻物を止める
+            ScrollMover[] scrolls = FindObjectsOfType<ScrollMover>();
+            
+            foreach (ScrollMover scroll in scrolls)
+            {
+                scroll.enabled = false;
             }
         }
     }
